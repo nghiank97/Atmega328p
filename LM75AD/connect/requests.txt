@@ -1,0 +1,5 @@
+
+# python==3.6.0
+pyqt5==5.15.4
+pyserial==3.5
+matplotlib==3.3.4
