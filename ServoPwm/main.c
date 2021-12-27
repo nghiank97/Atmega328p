@@ -6,12 +6,11 @@
  * Author: Khac Nghia
  */
 
-#include "Lib/Inc/config.h"
-#include "Lib/Inc/servo.h"
+#include "bee.h"
 
 int main(void)
 {
-    CONFIG_EXTER_CLOCK();
+    CONFIG_EXTERNAL_CLOCK();
     servo_init();
     servo_put(20);
     while (1)
