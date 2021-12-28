@@ -2,8 +2,6 @@
 #ifndef STYLE_H_
 #define STYLE_H_
 
-#define F_CPU                                       16000000UL
-
 #define SET(PORT,PIN)                               (PORT |= (1<<PIN))
 #define CLR(PORT,PIN)                               (PORT &= ~(1<<PIN))
 #define WRITE(PORT,PIN,S)                           (S==1 ? SET(PORT,PIN): CLR(PORT,PIN))  

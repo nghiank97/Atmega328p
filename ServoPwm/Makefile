@@ -6,7 +6,7 @@ DEVICE     			:= atmega328p
 F_CPU				:= 16000000UL
 HEXFORMAT			:= ihex
 
-COM_PORT			:= COM4
+COM_PORT			:= COM5
 BAUDRATE			:= 115200
 PROGRAMMER_TYPE		:= arduino
 
@@ -20,6 +20,7 @@ COMPILE_OBJ_COPY   	:= $(PATH_COMPILE)\\avr-objcopy
 COMPILE_AVRDUDE		:= $(PATH_COMPILE)\\avrdude
 
 MAIN_FILE 			= main
+SRC_FILE 			+= serial.c
 SRC_FILE 			+= servo.c
 
 OBJS				= $(patsubst %.c,Obj/%.o,$(SRC_FILE))
