@@ -13,5 +13,7 @@
 #include "define.h"
 #include "serial.h"
 #include "bldc.h"
+#include "encoder.h"
+
 
 #endif
