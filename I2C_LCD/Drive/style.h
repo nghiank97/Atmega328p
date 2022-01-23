@@ -1,8 +1,6 @@
 
-#ifndef BEE_H_
-#define BEE_H_
-
-#define F_CPU                                       16000000UL
+#ifndef STYLE_H_
+#define STYLE_H_
 
 #define _set(PORT,PIN)                              (PORT |= (1<<PIN))
 #define _clr(PORT,PIN)                              (PORT &= ~(1<<PIN))

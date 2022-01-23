@@ -1,4 +1,4 @@
-#include "../Inc/i2c.h"
+#include "bee.h"
 
 extern void i2c_init(void){
     TWSR = (0<<TWPS1)|(1<<TWPS0);

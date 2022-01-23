@@ -1,6 +1,5 @@
 
-#include "../Inc/config.h"
-#include "../Inc/serial.h"
+#include "bee.h"
 
 extern void serial_init(int intp){
     UBRR0L = BAUD_PRESCALE;
