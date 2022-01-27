@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "serial.h": "c",
+        "elephant.h": "c",
+        "system.h": "c"
+    }
+}
