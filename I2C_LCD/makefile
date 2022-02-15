@@ -5,7 +5,7 @@ PATH_BUILD			:= Build
 DEVICE     			:= atmega328p
 F_CPU				:= 16000000UL
 
-COM_PORT			:= COM12
+COM_PORT			:= COM4
 BAUDRATE			:= 115200
 PROGRAMMER_TYPE		:= arduino
 

@@ -12,29 +12,38 @@ static void pcf8574_put(uint8_t byte){
 }
               
 extern void i2c_lcd4_cmd(uint8_t Cmd){
-    uint8_t data_u, data_l;
-    data_u = (Cmd&0xf0)|0x04;
-    data_l = (Cmd<<4)|0x04;
-    
-    pcf8574_put(data_u);delay_us(100);
-    pcf8574_put(_clr(data_u,2));
 
-    pcf8574_put(data_l);delay_us(100);
-    pcf8574_put(_clr(data_l,2));
+    uint8_t data_u, data_l;
+	uint8_t data_t[4];
+	data_u = (Cmd&0xf0);
+	data_l = ((Cmd<<4)&0xf0);
+	data_t[0] = data_u|0x0C;  //en=1, rs=0
+	data_t[1] = data_u|0x08;  //en=0, rs=0
+	data_t[2] = data_l|0x0C;  //en=1, rs=0
+	data_t[3] = data_l|0x08;  //en=0, rs=0
+
+    pcf8574_put(data_t[0]);delay_us(100);
+    pcf8574_put(data_t[1]);delay_us(100);
+    pcf8574_put(data_t[2]);delay_us(100);
+    pcf8574_put(data_t[3]);
     delay_ms(2);
 }
 
 extern void i2c_lcd4_put(char Data){
     uint8_t data_u, data_l;
-    data_u = (Data&0xF0)|0x05;
-    data_l = (Data<<4)|0x05;
+	uint8_t data_t[4];
+	data_u = (Data&0xf0);
+	data_l = ((Data<<4)&0xf0);
+	data_t[0] = data_u|0x0D;  //en=1, rs=0
+	data_t[1] = data_u|0x09;  //en=0, rs=0
+	data_t[2] = data_l|0x0D;  //en=1, rs=0
+	data_t[3] = data_l|0x09;  //en=0, rs=0
 
-    pcf8574_put(data_u);delay_us(100);
-    pcf8574_put(_clr(data_u,2));
-    
-    pcf8574_put(data_l);delay_us(100);
-    pcf8574_put(_clr(data_l,2));
-    delay_ms(1);
+    pcf8574_put(data_t[0]);delay_us(100);
+    pcf8574_put(data_t[1]);delay_us(100);
+    pcf8574_put(data_t[2]);delay_us(100);
+    pcf8574_put(data_t[3]);
+    delay_ms(2);
 }
 
 extern void i2c_lcd4_high(uint8_t byte){
@@ -128,6 +137,6 @@ extern void i2c_lcd4_init(uint8_t address){
     i2c_lcd4_cmd(0x01);
     i2c_lcd4_cmd(0x28);
     i2c_lcd4_cmd(0x0c);
-    i2c_lcd4_cmd(0x06);   
+    i2c_lcd4_cmd(0x06);
     delay_ms(10);
 }
