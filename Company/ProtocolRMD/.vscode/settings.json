@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "g_code.h": "c",
+        "elephant.h": "c",
+        "cpu_map.h": "c",
+        "protocol.h": "c"
+    }
+}

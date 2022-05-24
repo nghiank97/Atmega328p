@@ -1,0 +1,64 @@
+
+Obj\\memory.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000036  2**0
+                  ALLOC
+  3 .text.startup 0000003a  00000000  00000000  00000036  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .comment      00000013  00000000  00000000  00000070  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 main.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+0000003e l       *ABS*	00000000 __SP_H__
+0000003d l       *ABS*	00000000 __SP_L__
+0000003f l       *ABS*	00000000 __SREG__
+00000000 l       *ABS*	00000000 __tmp_reg__
+00000001 l       *ABS*	00000000 __zero_reg__
+00000000 l    d  .text.startup	00000000 .text.startup
+00000000 l    d  .comment	00000000 .comment
+00000000 g     F .text.startup	0000003a main
+00000000 g     O .data	00000002 nghia
+00000000         *UND*	00000000 __do_copy_data
+
+
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+main():
+   0:	80 e8       	ldi	r24, 0x80	; 128
+   2:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <__SREG__+0x800022>
+   6:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__SREG__+0x800022>
+   a:	8f ef       	ldi	r24, 0xFF	; 255
+   c:	84 b9       	out	0x04, r24	; 4
+   e:	80 e8       	ldi	r24, 0x80	; 128
+  10:	15 b8       	out	0x05, r1	; 5
+  12:	2f ef       	ldi	r18, 0xFF	; 255
+  14:	39 e6       	ldi	r19, 0x69	; 105
+  16:	98 e1       	ldi	r25, 0x18	; 24
+  18:	21 50       	subi	r18, 0x01	; 1
+  1a:	30 40       	sbci	r19, 0x00	; 0
+  1c:	90 40       	sbci	r25, 0x00	; 0
+  1e:	01 f4       	brne	.+0      	; 0x20 <main+0x20>
+  20:	00 c0       	rjmp	.+0      	; 0x22 <main+0x22>
+  22:	00 00       	nop
+  24:	85 b9       	out	0x05, r24	; 5
+  26:	2f ef       	ldi	r18, 0xFF	; 255
+  28:	39 e6       	ldi	r19, 0x69	; 105
+  2a:	98 e1       	ldi	r25, 0x18	; 24
+  2c:	21 50       	subi	r18, 0x01	; 1
+  2e:	30 40       	sbci	r19, 0x00	; 0
+  30:	90 40       	sbci	r25, 0x00	; 0
+  32:	01 f4       	brne	.+0      	; 0x34 <main+0x34>
+  34:	00 c0       	rjmp	.+0      	; 0x36 <main+0x36>
+  36:	00 00       	nop
+  38:	00 c0       	rjmp	.+0      	; 0x3a <__zero_reg__+0x39>

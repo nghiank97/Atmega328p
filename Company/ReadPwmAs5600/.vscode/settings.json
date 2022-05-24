@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "elephant.h": "c",
+        "mcp23017.h": "c",
+        "style.h": "c",
+        "capture.h": "c"
+    }
+}
