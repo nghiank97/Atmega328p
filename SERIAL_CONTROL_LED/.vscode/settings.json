@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "elephant.h": "c",
+        "serial.h": "c"
+    }
+}
